@@ -1,0 +1,123 @@
+$info-color: #1890ff;
+$background-color-base: #ffffff;
+
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 90vw;
+  max-width: 941px;
+  background-color: $background-color-base;
+  border-radius: 5px;
+  padding: 15px 19px;
+  filter: drop-shadow(0px 4px 12px rgba(0, 0, 0, 0.15));
+
+  .header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+
+    @media (min-width: 768px) {
+      flex-wrap: nowrap;
+    }
+
+    .articleInfo {
+      margin-right: 85px;
+
+      .titleWrapper {
+        display: flex;
+        align-items: center;
+        margin-bottom: 4px;
+
+        .title {
+          color: $info-color;
+          font-size: 20px;
+          line-height: 28px;
+          margin: 0;
+          margin-right: 12px;
+
+          .link {
+            text-decoration: none;
+            cursor: pointer;
+            color: $info-color;
+          }
+        }
+      }
+
+      .tagList {
+        display: flex;
+        flex-wrap: wrap;
+        margin-bottom: 4px;
+
+        .tag {
+          font-size: 12px;
+          line-height: 15px;
+          color: rgba(0, 0, 0, 0.5);
+          background-color: rgba(0, 0, 0, 0);
+          border: 1px solid rgba(0, 0, 0, 0.5);
+          border-radius: 2px;
+          margin-right: 8px;
+          padding: 2px 5px;
+        }
+      }
+    }
+
+    .person {
+      margin-left: auto;
+
+      .top {
+        display: flex;
+        align-items: center;
+        margin-bottom: 30px;
+
+        .personInfo {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-end;
+          margin-right: 12px;
+
+          .name {
+            font-size: 18px;
+            line-height: 28px;
+            color: rgba(0, 0, 0, 0.85);
+            white-space: nowrap;
+          }
+
+          .time {
+            font-size: 12px;
+            line-height: 22px;
+            color: rgba(0, 0, 0, 0.5);
+            white-space: nowrap;
+          }
+        }
+
+        .avatar {
+          width: 46px;
+          height: 46px;
+        }
+      }
+
+      .controlBtns {
+        margin-bottom: 12px;
+
+        .delete {
+          margin-right: 12px;
+          border-radius: 5px;
+        }
+
+        .edit {
+          border-radius: 5px;
+          border-color: #52c41a;
+          color: #52c41a;
+
+          &:hover {
+            filter: brightness(1.1);
+          }
+        }
+      }
+    }
+  }
+
+  .text {
+    color: rgba(0, 0, 0, 0.75);
+  }
+}

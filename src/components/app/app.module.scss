@@ -1,0 +1,15 @@
+.container {
+  padding-top: 136px;
+  padding-bottom: 30px;
+
+  @media (min-width: 595px) {
+    padding-top: 106px;
+  }
+
+  .main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+  }
+}
