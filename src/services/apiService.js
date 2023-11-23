@@ -33,7 +33,7 @@ const Auth = {
 const limit = (count, pp) => `limit=${count}&offset=${pp ? pp * count : 0}`;
 const omitSlug = (article) => ({ ...article, slug: undefined });
 const Articles = {
-  all: (page) => requests.get(`/articles?${limit(10, page)}`),
+  all: (page) => requests.get(`/articles?${limit(10, page - 1)}`),
   del: (slug) => requests.del(`/articles/${slug}`),
   favorite: (slug) => requests.post(`/articles/${slug}/favorite`),
   unfavorite: (slug) => requests.del(`/articles/${slug}/favorite`),
