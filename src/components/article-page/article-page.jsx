@@ -1,18 +1,10 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { Spin, Result } from 'antd';
+import { Result } from 'antd';
 import { Article } from '../article';
 import { loadArticle } from '../../redux/actions/articlesActions';
-import cls from './article-page.module.scss';
-
-const renderSpinner = () => {
-  return (
-    <div className={cls.spinnerContainer}>
-      <Spin size="large" />
-    </div>
-  );
-};
+import Spinner from '../spinner';
 
 const ArticlePage = () => {
   const { slug } = useParams();
@@ -28,7 +20,7 @@ const ArticlePage = () => {
   if (loadingError) {
     return <Result status="error" title="Oops, something went wrong" />;
   }
-  return loaded ? <Article article={article} /> : renderSpinner();
+  return loaded ? <Article article={article} /> : <Spinner />;
 };
 
 export default ArticlePage;
