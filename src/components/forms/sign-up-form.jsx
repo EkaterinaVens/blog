@@ -13,6 +13,7 @@ import {
   EMAIL_VALIDATE_PATTERN,
   PASSWORD_VALIDATE_PATTERN,
 } from './forms';
+import { articles } from '../../routing/routes';
 
 const validateRepeatedPassword = ({ getFieldValue }) => ({
   validator(rules, value) {
@@ -33,7 +34,7 @@ export default function SignUpForm() {
       .then(() => {
         message.success('Account created successfully', 3);
         form.resetFields();
-        history.goBack();
+        history.push(articles.all());
       })
       .catch((err) => {
         form.setFields(
