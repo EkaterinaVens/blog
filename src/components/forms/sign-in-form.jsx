@@ -4,15 +4,17 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useHistory } from 'react-router-dom';
 import cn from 'classnames';
-import cls from './forms.module.scss';
 import { renderInputText, renderInputPassword, EMAIL_VALIDATE_PATTERN } from './forms';
 import { login } from '../../redux/actions/userSessionActions';
 import * as routes from '../../routing/routes';
+import { selectForms } from '../../redux/selectors';
+
+import cls from './forms.module.scss';
 
 export default function SignInForm() {
   const dispatch = useDispatch();
   const history = useHistory();
-  const isSubmited = useSelector((state) => state.forms.isSubmited);
+  const { isSubmited } = useSelector(selectForms);
   const [form] = Form.useForm();
   const onSubmit = (data) => {
     const { email, password } = data;

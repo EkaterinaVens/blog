@@ -4,7 +4,6 @@ import { useHistory, Link } from 'react-router-dom';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import cn from 'classnames';
-import cls from './forms.module.scss';
 import { register } from '../../redux/actions/userSessionActions';
 import {
   renderInputText,
@@ -14,6 +13,9 @@ import {
   PASSWORD_VALIDATE_PATTERN,
 } from './forms';
 import { articles } from '../../routing/routes';
+import { selectForms } from '../../redux/selectors';
+
+import cls from './forms.module.scss';
 
 const validateRepeatedPassword = ({ getFieldValue }) => ({
   validator(rules, value) {
@@ -24,7 +26,7 @@ const validateRepeatedPassword = ({ getFieldValue }) => ({
 
 export default function SignUpForm() {
   const [isPolicyAdopted, setIsPolicyAdopted] = useState(true);
-  const isSubmited = useSelector((state) => state.forms.isSubmited);
+  const { isSubmited } = useSelector(selectForms);
   const [form] = Form.useForm();
   const dispatch = useDispatch();
   const history = useHistory();

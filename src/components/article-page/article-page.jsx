@@ -5,11 +5,12 @@ import { Result } from 'antd';
 import { Article } from '../article';
 import { loadArticle } from '../../redux/actions/articlesActions';
 import Spinner from '../spinner';
+import { selectArticleBySlug, selectArticles } from '../../redux/selectors';
 
 const ArticlePage = () => {
   const { slug } = useParams();
-  const { loaded, loadingError } = useSelector((state) => state.articles);
-  const article = useSelector((state) => state.articles.articles.find((item) => item.slug === slug));
+  const { loaded, loadingError } = useSelector(selectArticles);
+  const article = useSelector(selectArticleBySlug(slug));
   const dispatch = useDispatch();
   useEffect(() => {
     if (!article) {

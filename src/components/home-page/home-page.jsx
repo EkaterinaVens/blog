@@ -4,6 +4,8 @@ import { Pagination, Spin, Result } from 'antd';
 import { loadArticles, setPage } from '../../redux/actions/articlesActions';
 
 import { ArticlePreview } from '../article';
+import { selectArticles } from '../../redux/selectors';
+
 import cls from './home-page.module.scss';
 import './pagination.scss';
 
@@ -24,7 +26,7 @@ const renderSpinner = () => {
 };
 
 export default function HomePage() {
-  const { articles, articlesCount, loaded, loadingError, page } = useSelector((state) => state.articles);
+  const { articles, articlesCount, loaded, loadingError, page } = useSelector(selectArticles);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(loadArticles(Number(page)));

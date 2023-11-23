@@ -6,6 +6,8 @@ import { message } from 'antd';
 import { logout } from '../../redux/actions/userSessionActions';
 import avatar from '../../resources/images/avatar.svg';
 import * as routes from '../../routing/routes';
+import { selectUserSession } from '../../redux/selectors';
+
 import cls from './header.module.scss';
 
 // eslint-disable-next-line no-unused-vars
@@ -41,7 +43,7 @@ const renderAuthorizedBlock = (user, onLogout) => {
 };
 
 export default function Header() {
-  const user = useSelector((state) => state.userSession);
+  const user = useSelector(selectUserSession);
   const dispatch = useDispatch();
   const onLogout = () => {
     dispatch(logout());

@@ -4,7 +4,6 @@ import React from 'react';
 import cn from 'classnames';
 import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import cls from './forms.module.scss';
 import { save } from '../../redux/actions/userSessionActions';
 import {
   renderInputText,
@@ -13,11 +12,14 @@ import {
   PASSWORD_VALIDATE_PATTERN,
   URL_VALIDATE_PATTERN,
 } from './forms';
+import { selectForms, selectUserSession } from '../../redux/selectors';
+
+import cls from './forms.module.scss';
 
 export default function EditProfileForm() {
   const dispatch = useDispatch();
-  const user = useSelector((state) => state.userSession);
-  const isSubmited = useSelector((state) => state.forms.isSubmited);
+  const user = useSelector(selectUserSession);
+  const { isSubmited } = useSelector(selectForms);
   const history = useHistory();
   const onSubmit = (data) => {
     dispatch(save({ ...user, ...data }))

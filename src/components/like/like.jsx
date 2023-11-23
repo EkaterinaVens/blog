@@ -2,11 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { useSelector } from 'react-redux';
+
+import { selectUserSession } from '../../redux/selectors';
+
 import cls from './like.module.scss';
 
 export default function Like(props) {
   const { counter, checked, onChange } = props;
-  const isLogged = useSelector((state) => state.userSession.isLogged);
+  const { isLogged } = useSelector(selectUserSession);
   return (
     <label className={cls.container}>
       <input

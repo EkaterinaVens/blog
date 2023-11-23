@@ -7,6 +7,8 @@ import cn from 'classnames';
 import { updateArticle, loadArticle, createArticle } from '../../redux/actions/articlesActions';
 
 import { renderInputText, renderTextArea } from './forms';
+import { selectArticleBySlug, selectForms } from '../../redux/selectors';
+
 import cls from './forms.module.scss';
 
 const renderArticleForm = (form, onSubmit, title, initialValues, isSubmited) => {
@@ -83,8 +85,8 @@ const onSubmit = (dispatch, form, history) => (action) => {
 const ArticleForm = () => {
   const history = useHistory();
   const { slug } = useParams();
-  const article = useSelector((state) => state.articles.articles.find((item) => item.slug === slug));
-  const isSubmited = useSelector((state) => state.forms.isSubmited);
+  const article = useSelector(selectArticleBySlug(slug));
+  const { isSubmited } = useSelector(selectForms);
   const [form] = Form.useForm();
   const dispatch = useDispatch();
   const onSubmitForm = useCallback((action) => onSubmit(dispatch, form, history)(action), [dispatch, form]);

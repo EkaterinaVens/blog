@@ -7,6 +7,8 @@ import avatar from '../../resources/images/avatar.svg';
 import * as articlesActions from '../../redux/actions/articlesActions';
 import Like from '../like';
 import { articles } from '../../routing/routes';
+import { selectUserSession } from '../../redux/selectors';
+
 import cls from './article.module.scss';
 
 const renderTags = (tags) => {
@@ -86,7 +88,7 @@ const renderArticle = (article, body, props) => {
 
 export function Article(props) {
   const { article } = props;
-  const { isLogged, username } = useSelector((state) => state.userSession);
+  const { isLogged, username } = useSelector(selectUserSession);
   const isEditable = username === article.author.username;
   const dispatch = useDispatch();
   const history = useHistory();
@@ -105,7 +107,7 @@ export function Article(props) {
 
 export function ArticlePreview(props) {
   const { article } = props;
-  const { isLogged } = useSelector((state) => state.userSession);
+  const { isLogged } = useSelector(selectUserSession);
   const dispatch = useDispatch();
   const onFavorite = (slug, isChecked) => {
     dispatch(articlesActions.favoriteArticle(slug, isChecked));
