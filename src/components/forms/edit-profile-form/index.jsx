@@ -4,17 +4,17 @@ import React from 'react';
 import cn from 'classnames';
 import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { save } from '../../redux/actions/userSessionActions';
+import { save } from '../../../redux/actions/userSessionActions';
 import {
   renderInputText,
   renderInputPassword,
   EMAIL_VALIDATE_PATTERN,
   PASSWORD_VALIDATE_PATTERN,
   URL_VALIDATE_PATTERN,
-} from './forms';
-import { selectForms, selectUserSession } from '../../redux/selectors';
+} from '../forms';
+import { selectForms, selectUserSession } from '../../../redux/selectors';
 
-import cls from './forms.module.scss';
+import cls from '../forms.module.scss';
 
 export default function EditProfileForm() {
   const dispatch = useDispatch();

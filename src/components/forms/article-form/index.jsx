@@ -4,12 +4,12 @@ import React, { useEffect, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams, useHistory } from 'react-router-dom';
 import cn from 'classnames';
-import { updateArticle, loadArticle, createArticle } from '../../redux/actions/articlesActions';
+import { updateArticle, loadArticle, createArticle } from '../../../redux/actions/articlesActions';
 
-import { renderInputText, renderTextArea } from './forms';
-import { selectArticleBySlug, selectForms } from '../../redux/selectors';
+import { renderInputText, renderTextArea } from '../forms';
+import { selectArticleBySlug, selectForms } from '../../../redux/selectors';
 
-import cls from './forms.module.scss';
+import cls from '../forms.module.scss';
 
 const renderArticleForm = (form, onSubmit, title, initialValues, isSubmited) => {
   return (

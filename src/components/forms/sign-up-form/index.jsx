@@ -4,18 +4,18 @@ import { useHistory, Link } from 'react-router-dom';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import cn from 'classnames';
-import { register } from '../../redux/actions/userSessionActions';
+import { register } from '../../../redux/actions/userSessionActions';
 import {
   renderInputText,
   renderInputPassword,
   USERNAME_VALIDATE_PATTERN,
   EMAIL_VALIDATE_PATTERN,
   PASSWORD_VALIDATE_PATTERN,
-} from './forms';
-import { articles } from '../../routing/routes';
-import { selectForms } from '../../redux/selectors';
+} from '../forms';
+import { articles } from '../../../routing/routes';
+import { selectForms } from '../../../redux/selectors';
 
-import cls from './forms.module.scss';
+import cls from '../forms.module.scss';
 
 const validateRepeatedPassword = ({ getFieldValue }) => ({
   validator(rules, value) {

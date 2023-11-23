@@ -13,21 +13,21 @@ import cls from './header.module.scss';
 // eslint-disable-next-line no-unused-vars
 const renderNonAuthorizedBlock = () => {
   return (
-    <React.Fragment>
+    <>
       <Link className={cn(cls.btn, cls.signIn)} to={routes.auth.login()}>
         Sign In
       </Link>
       <Link className={cn(cls.btn, cls.signUp)} to={routes.user.create()}>
         Sign Up
       </Link>
-    </React.Fragment>
+    </>
   );
 };
 
 const renderAuthorizedBlock = (user, onLogout) => {
   const { username, image } = user;
   return (
-    <React.Fragment>
+    <>
       <Link className={cn(cls.btn, cls.createArticle)} to={routes.articles.create()}>
         Create articles
       </Link>
@@ -38,7 +38,7 @@ const renderAuthorizedBlock = (user, onLogout) => {
       <Link className={cn(cls.btn, cls.signUp, cls.logOut)} to={routes.articles.all()} onClick={onLogout}>
         Log Out
       </Link>
-    </React.Fragment>
+    </>
   );
 };
 
